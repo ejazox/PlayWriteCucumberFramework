@@ -1,0 +1,28 @@
+  {
+    "name": "playwright-cucumber-framework",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "cucumberWithTs": "npx cucumber-js src/features/**/*.feature --require-module ts-node/register --require \"src/step-definitions/**/*.ts\" --require \"src/step-definitions/hooks/hooks.ts\" --require \"src/utils/cucumber-timeout.ts\"  --format json:./cucumber-report/report.json",
+      "precucumber": "rimraf cucumber-report && mkdir cucumber-report",
+      "cucumber": "npx cucumber-js src/features/**/*.feature --require-module ts-node/register --require \"src/step-definitions/**/*.ts\" --require \"src/step-definitions/hooks/hooks.ts\" --require \"src/utils/cucumber-timeout.ts\" --tags \"@${npm_config_tag}\" --format json:./cucumber-report/report.json",
+      "generate-report": "node generate-html-report.js",
+      "test:report": "npm run cucumber --config-tag smoke && npm run generate-report"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "@cucumber/cucumber": "^11.2.0",
+      "@faker-js/faker": "^9.7.0",
+      "@playwright/test": "^1.52.0",
+      "@types/node": "^22.14.1",
+      "cucumber-html-reporter": "^7.2.0",
+      "dotenv": "^16.5.0",
+      "rimraf": "^6.0.1",
+      "ts-node": "^10.9.2",
+      "typescript": "^5.8.3",
+      "winston": "^3.17.0"
+    }
+  }
