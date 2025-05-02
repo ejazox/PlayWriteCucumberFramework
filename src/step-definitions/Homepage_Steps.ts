@@ -13,9 +13,8 @@ Given('I navigate to WebdriverUniversity homepage', async function (this : Cucum
     await this.homePage.navigate(url);
     logger.info('Accessing URL: ' + url);
     this.setUrl(url);
-     //throw new Error('Simulating en error during navigation');
    } catch (error : any) {
-    logger.error('An error has occurred: ' + error.message);
+    logger.error('An error has been occurred: ' + error.message);
    }    
 });
 
